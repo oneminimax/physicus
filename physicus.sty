@@ -1,14 +1,15 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{physicus}
 
-
 \usepackage{esdiff}
 \usepackage{mathtools}
 
 % Linear algebra
 
 \DeclareMathOperator{\trace}{Tr}%
-\newcommand{\pmqty}[1]{\begin{pmatrix}#1\end{pmatrix}}%
+\newcommand{\pmqty}[1]{
+  \begin{pmatrix}#1
+\end{pmatrix}}%
 \newcommand{\vb}[1]{\ensuremath{\mathbf{#1}}}%
 \newcommand{\vu}[1]{\ensuremath{\hat{\mathbf{#1}}}}%
 
@@ -19,6 +20,9 @@
 \DeclarePairedDelimiter{\Bqty}{\lbrace}{\rbrace}%
 
 \DeclarePairedDelimiterX\abs[1]{\lvert}{\rvert}{#1}%
+\DeclarePairedDelimiterX\norm[1]{\lVert}{\rVert}{#1}%
+\DeclarePairedDelimiterX\eval[1]{.}{\rvert}{#1}%
+\DeclarePairedDelimiterX\order[1]{\mathcal{O}\lparen}{\rparen}{#1}%
 
 \DeclarePairedDelimiter{\bra}{\langle}{\rvert}%
 \DeclarePairedDelimiter{\ket}{\lvert}{\rangle}%
@@ -32,9 +36,7 @@
 \DeclarePairedDelimiterX\projector[1]{\lvert}{\rvert}{#1\delimsize\rangle\!\delimsize\langle#1}%
 
 \DeclarePairedDelimiterX\commutator[2]{\lbrack}{\rbrack}{#1,#2}%
-
-
-
+\DeclarePairedDelimiterX\anticommutator[2]{\lbrace}{\rbrace}{#1,#2}%
 
 % Derivatives
 % Code inspired by esdiff
@@ -42,29 +44,29 @@
 \newcommand{\dd}{\mathrm{d}}%
 
 \def\dv{\@ifnextchar[{\dv@a}{\dv@b}}
-\def\dv@a[#1]#2#3{\mathchoice
+  \def\dv@a[#1]#2#3{\mathchoice
     {\frac{\dd^{#1} #2}{\dd #3^{#1}}}%
     {\frac{\dd^{#1} #2}{\dd #3^{#1}}}%
     {\scriptstyle{\frac{\dd^{#1}#2}{\dd #3^{#1}}}}%
     {\scriptstyle{\frac{\dd^{#1}#2}{\dd #3^{#1}}}}%
-}
-\def\dv@b#1#2{\mathchoice
+  }
+  \def\dv@b#1#2{\mathchoice
     {\frac{\dd #1}{\dd #2}}%
     {{\frac{\dd #1}{\dd #2}}}%
     {\scriptstyle{\frac{\dd #1}{\dd #2}}}%
     {\scriptstyle{\frac{\dd #1}{\dd #2}}}
-}
+  }
 
-\def\pdv{\@ifnextchar[{\pdv@a}{\pdv@b}}
-\def\pdv@a[#1]#2#3{\mathchoice
-    {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
-    {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
-    {\scriptstyle{\frac{\partial^{#1}#2}{\partial #3^{#1}}}}%
-    {\scriptstyle{\frac{\partial^{#1}#2}{\partial #3^{#1}}}}%
-}
-\def\pdv@b#1#2{\mathchoice
-    {\frac{\partial #1}{\partial #2}}%
-    {{\frac{\partial #1}{\partial #2}}}%
-    {\scriptstyle{\frac{\partial #1}{\partial #2}}}%
-    {\scriptstyle{\frac{\partial #1}{\partial #2}}}
-}
+  \def\pdv{\@ifnextchar[{\pdv@a}{\pdv@b}}
+    \def\pdv@a[#1]#2#3{\mathchoice
+      {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
+      {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
+      {\scriptstyle{\frac{\partial^{#1}#2}{\partial #3^{#1}}}}%
+      {\scriptstyle{\frac{\partial^{#1}#2}{\partial #3^{#1}}}}%
+    }
+    \def\pdv@b#1#2{\mathchoice
+      {\frac{\partial #1}{\partial #2}}%
+      {{\frac{\partial #1}{\partial #2}}}%
+      {\scriptstyle{\frac{\partial #1}{\partial #2}}}%
+      {\scriptstyle{\frac{\partial #1}{\partial #2}}}
+    }
