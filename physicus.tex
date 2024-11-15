@@ -2,6 +2,10 @@
 
 \usepackage{physicus}
 
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
 \begin{document}
 
 \begin{center}
@@ -38,7 +42,14 @@
 \end{align*}
 
 \begin{align*}
-  \dv{a}{c}\dv[2]{a}{c}
+  \grad\dv{a}{c}\dv[2]{a}{c}
+\end{align*}
+
+\begin{align*}
+  \text{Covar}_\psi\pqty{\mathcal{Z}_i,\mathcal{Z}_j}
+  & = \mathbb{E}_\psi\bqty{ \pqty{\mathcal{Z}_i - \mathbb{E}_\psi\pqty{ \mathcal{Z}_i}} \pqty{\mathcal{Z}_j - \mathbb{E}_\psi\pqty{ \mathcal{Z}_j}} } \\
+  & = \mathbb{E}_\psi\bqty*{\mathcal{Z}_{ij}} - \mathbb{E}_\psi\bqty*{\mathcal{Z}_i}\mathbb{E}_\psi\bqty*{\mathcal{Z}_j}                              \\
+  & = \expval{\hat{\mathcal{Z}}_{ij}}{\psi} - \expval{\hat{\mathcal{Z}}_{i}}{\psi}\expval{\hat{\mathcal{Z}}_{j}}{\psi}
 \end{align*}
 
 \end{document}
