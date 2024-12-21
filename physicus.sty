@@ -13,6 +13,8 @@
 \newcommand{\vb}[1]{\ensuremath{\mathbf{#1}}}%
 \newcommand{\vu}[1]{\ensuremath{\hat{\mathbf{#1}}}}%
 
+\DeclarePairedDelimiterX\innerp[2]{\langle}{\rangle}{#1,#2}%
+
 % Quantum and dirac notation
 
 \DeclarePairedDelimiter{\pqty}{\lparen}{\rparen}%
@@ -26,7 +28,7 @@
 
 \DeclarePairedDelimiter{\bra}{\langle}{\rvert}%
 \DeclarePairedDelimiter{\ket}{\lvert}{\rangle}%
-\DeclarePairedDelimiterX\innerp[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}%
+
 \DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}%
 \DeclarePairedDelimiterX\mel[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3}%
 \DeclarePairedDelimiterX\expval[2]{\langle}{\rangle}{#2\delimsize\vert\mathopen{}#1\delimsize\vert\mathopen{}#2}%
