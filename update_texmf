@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cp ./physicus.sty ~/Library/texmf/tex/latex/physicus.sty
+
+echo Done!

@@ -12,6 +12,7 @@
 \end{pmatrix}}%
 \newcommand{\vb}[1]{\ensuremath{\mathbf{#1}}}%
 \newcommand{\vu}[1]{\ensuremath{\hat{\mathbf{#1}}}}%
+\newcommand{\vd}[1]{\ensuremath{\mathrm{#1}}}%
 
 \DeclarePairedDelimiterX\innerp[2]{\langle}{\rangle}{#1,#2}%
 
@@ -45,31 +46,53 @@
 
 \let\grad\nabla%
 \newcommand{\dd}{\mathrm{d}}%
+% \newcommand{\grad}{\nabla}%
 
-\def\dv{\@ifnextchar[{\dv@a}{\dv@b}}
-  \def\dv@a[#1]#2#3{\mathchoice
-    {\frac{\dd^{#1} #2}{\dd #3^{#1}}}%
-    {\frac{\dd^{#1} #2}{\dd #3^{#1}}}%
-    {\scriptstyle{\frac{\dd^{#1}#2}{\dd #3^{#1}}}}%
-    {\scriptstyle{\frac{\dd^{#1}#2}{\dd #3^{#1}}}}%
-  }
-  \def\dv@b#1#2{\mathchoice
-    {\frac{\dd #1}{\dd #2}}%
-    {{\frac{\dd #1}{\dd #2}}}%
-    {\scriptstyle{\frac{\dd #1}{\dd #2}}}%
-    {\scriptstyle{\frac{\dd #1}{\dd #2}}}
-  }
+\let\bbrack=[ %
+\let\ebrack=] %
 
-  \def\pdv{\@ifnextchar[{\pdv@a}{\pdv@b}}
-    \def\pdv@a[#1]#2#3{\mathchoice
-      {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
-      {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
-      {\scriptstyle{\frac{\partial^{#1}#2}{\partial #3^{#1}}}}%
-      {\scriptstyle{\frac{\partial^{#1}#2}{\partial #3^{#1}}}}%
-    }
-    \def\pdv@b#1#2{\mathchoice
-      {\frac{\partial #1}{\partial #2}}%
-      {{\frac{\partial #1}{\partial #2}}}%
-      {\scriptstyle{\frac{\partial #1}{\partial #2}}}%
-      {\scriptstyle{\frac{\partial #1}{\partial #2}}}
-    }
+% \DeclareRobustCommand{\ppdv}[1]{%
+% \@ifnextchar\bgroup{\@ppdv{#1}}{\@ppdv{}{#1}}}
+% \newcommand{\@ppdv}[2]{\frac{\partial#1}{\partial#2}}
+
+% \def\@ppdv{\@ifnextchar\bbrack{\pdv@a}{\pdv@b}}
+% \def\pdv@a[#1]#2#3{\mathchoice
+%   {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
+%   {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
+%   {\scriptstyle{\frac{\partial^{#1}#2}{\partial #3^{#1}}}}%
+%   {\scriptstyle{\frac{\partial^{#1}#2}{\partial #3^{#1}}}}%
+% }
+% \def\pdv@b#1#2{\mathchoice
+%   {\frac{\partial #1}{\partial #2}}%
+%   {{\frac{\partial #1}{\partial #2}}}%
+%   {\scriptstyle{\frac{\partial #1}{\partial #2}}}%
+%   {\scriptstyle{\frac{\partial #1}{\partial #2}}}
+% }
+
+\def\dv{\@ifnextchar\bbrack{\dv@a}{\dv@b}}
+\def\dv@a[#1]#2#3{\mathchoice
+  {\frac{\dd^{#1} #2}{\dd #3^{#1}}}%
+  {\frac{\dd^{#1} #2}{\dd #3^{#1}}}%
+  {\scriptstyle{\frac{\dd^{#1}#2}{\dd #3^{#1}}}}%
+  {\scriptstyle{\frac{\dd^{#1}#2}{\dd #3^{#1}}}}%
+}
+\def\dv@b#1#2{\mathchoice
+  {\frac{\dd #1}{\dd #2}}%
+  {{\frac{\dd #1}{\dd #2}}}%
+  {\scriptstyle{\frac{\dd #1}{\dd #2}}}%
+  {\scriptstyle{\frac{\dd #1}{\dd #2}}}
+}
+
+\def\pdv{\@ifnextchar\bbrack{\pdv@a}{\pdv@b}}
+\def\pdv@a[#1]#2#3{\mathchoice
+  {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
+  {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
+  {\scriptstyle{\frac{\partial^{#1}#2}{\partial #3^{#1}}}}%
+  {\scriptstyle{\frac{\partial^{#1}#2}{\partial #3^{#1}}}}%
+}
+\def\pdv@b#1#2{\mathchoice
+  {\frac{\partial #1}{\partial #2}}%
+  {{\frac{\partial #1}{\partial #2}}}%
+  {\scriptstyle{\frac{\partial #1}{\partial #2}}}%
+  {\scriptstyle{\frac{\partial #1}{\partial #2}}}
+}
