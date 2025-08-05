@@ -7,6 +7,7 @@
 % Linear algebra
 
 \DeclareMathOperator{\trace}{Tr}%
+\DeclareMathOperator{\diag}{diag}%
 \newcommand{\pmqty}[1]{
   \begin{pmatrix}#1
 \end{pmatrix}}%
@@ -35,6 +36,8 @@
 \DeclarePairedDelimiter{\bra}{\langle}{\rvert}%
 \DeclarePairedDelimiter{\ket}{\lvert}{\rangle}%
 
+\DeclarePairedDelimiter{\normalorder}{:}{:}%
+
 \DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}%
 \DeclarePairedDelimiterX\mel[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3}%
 \DeclarePairedDelimiterX\expval[2]{\langle}{\rangle}{#2\delimsize\vert\mathopen{}#1\delimsize\vert\mathopen{}#2}%
@@ -42,6 +45,8 @@
 \DeclarePairedDelimiterX\ketbra[2]{\lvert}{\rvert}{#1\delimsize\rangle\!\delimsize\langle#2}%
 \DeclarePairedDelimiterX\outerp[2]{\lvert}{\rvert}{#1\delimsize\rangle\!\delimsize\langle#2}%
 \DeclarePairedDelimiterX\projector[1]{\lvert}{\rvert}{#1\delimsize\rangle\!\delimsize\langle#1}%
+
+
 
 \DeclarePairedDelimiterX\commutator[2]{\lbrack}{\rbrack}{#1,#2}%
 \DeclarePairedDelimiterX\anticommutator[2]{\lbrace}{\rbrace}{#1,#2}%
